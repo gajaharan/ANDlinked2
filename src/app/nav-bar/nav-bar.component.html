@@ -1,0 +1,4 @@
+<div class="userinfo" *ngIf="authInfo?.isLoggedIn()">
+  <span class="userinfo">Hi {{ getCurrentLoggedUser()?.firstname }}</span>
+  <a *ngIf="authInfo?.isLoggedIn()" (click)="logout()">logout</a>
+</div>

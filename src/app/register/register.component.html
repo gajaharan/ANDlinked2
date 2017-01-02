@@ -1,0 +1,40 @@
+
+<section class="card register">
+  <form name="myform" autocomplete="off" novalidate [formGroup]="form">
+
+    <div class="textintro">
+      <h1>Register</h1>
+      <!--<p class="message" ng-show="message">{{ message }}</p>-->
+    </div>
+
+    <fieldset>
+      <input type="text" name="firstname" placeholder="First Name" formControlName="firstname">
+      <!--<p class="error validationerror"
+         ng-show="myform.firstname.$invalid && myform.firstname.$touched">
+        First name required</p> -->
+
+      <input type="text" name="lastname" placeholder="Last Name" formControlName="lastname">
+      <!--<p class="error validationerror"
+         ng-show="myform.lastname.$invalid && myform.lastname.$touched">
+        Last name required</p> -->
+
+      <input type="email" name="email" placeholder="Email" formControlName="email">
+      <!--<p class="error validationerror"
+         ng-show="myform.email.$invalid && myform.email.$touched">
+        Must be a valid email</p> -->
+
+      <input type="password" name="password" placeholder="Password" formControlName="password" >
+      <!--<p class="error validationerror"
+         ng-show="myform.userPassword.$invalid && myform.email.$touched">
+        Password is required</p> -->
+      <input type="password" name="password" placeholder="Confirm password" formControlName="confirm" >
+
+    </fieldset>
+
+    <!--<button type="submit" class="btn btn-lg btn-primary btn-block and-btn"
+            ng-disabled="myform.$invalid">Register</button> -->
+    <button class="btn btn-lg btn-primary btn-block and-btn" (click)="signUp()" [disabled]="!isPasswordMatch()">Register</button>
+    <p class="text-center">or <a routerLink="/login">login</a></p>
+  </form>
+</section>
+

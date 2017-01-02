@@ -7,9 +7,5 @@ import { AngularFire } from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ANDLink app works!';
 
-  constructor(_angularFire: AngularFire) {
-    console.log(_angularFire);
-  }
 }
