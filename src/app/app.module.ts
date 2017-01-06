@@ -14,6 +14,10 @@ import {routableComponents, AppRoutingModule} from "./app-routing.module";
 import {AuthService} from "./shared/services/auth.service";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {UserService} from "./shared/services/user.service";
+import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { NgDropFilesDirective } from './shared/directives/ng-drop-files.directive';
+import {UploadImagesService} from "./shared/services/upload-images.service";
+import { NgSelectFilesDirective } from './shared/directives/ng-select-files.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import {UserService} from "./shared/services/user.service";
     RegisterComponent,
     ProfileFormComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    UploadImagesComponent,
+    NgDropFilesDirective,
+    NgSelectFilesDirective
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,7 @@ import {UserService} from "./shared/services/user.service";
     AngularFireModule.initializeApp(firebaseConfig, authConfig),
     AppRoutingModule
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, UploadImagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

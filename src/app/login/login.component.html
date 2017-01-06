@@ -2,33 +2,24 @@
   <form autocomplete="off" [formGroup]="form" novalidate>
 
     <div class="login-logo">
-      <img src="images/andigital-logo.png" class="img-responsive">
+      <img src="/assets/images/andigital-logo.png" class="img-responsive">
     </div>
 
     <div class="textintro">
-      <!--<p class="message"
-         ng-show="message"> {{ message }}</p>-->
     </div>
 
     <fieldset>
       <input name="email" type="email" placeholder="Email" formControlName="email">
       <div class="error validationerror" *ngIf="isErrorVisible('email','required')">Must be a valid email</div>
-      <!--<p class="error validationerror"
-         ng-show="myform.email.$invalid && myform.email.$touched">
-        Must be a valid email</p> -->
-
 
       <input type="password" name="password" placeholder="Password" formControlName="password">
-      <!--<p class="error validationerror"
-         ng-show="myform.userPassword.$invalid && myform.email.$touched">
-        Password is required</p> -->
       <div class="error validationerror" *ngIf="isErrorVisible('password','required')">Password is required</div>
 
     </fieldset>
 
     <!--<button type="submit" class="btn btn-lg btn-primary btn-block and-btn"
             ng-disabled="myform.$invalid">Login</button>-->
-        <button class="btn btn-lg btn-primary btn-block and-btn" (click)="login()">Login</button>
+        <button class="btn btn-lg btn-primary btn-block and-btn" (click)="login()" [disabled]="!form.valid">Login</button>
     <p class="text-center">or <a routerLink="/register">register</a></p>
   </form>
 </section>

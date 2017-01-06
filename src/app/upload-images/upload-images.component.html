@@ -1,0 +1,44 @@
+<div id="profile-photo">
+  <div NgDropFiles
+       [ngClass]="{'file-over': isDropZoneOver, 'well': isEditMode, 'drop-zone': isEditMode}"
+       (fileOver)="fileOverDropZone($event)"
+       (beforeUpload)="beforeUpload($event)"
+       [files]="files"
+       >
+    <div class="edit" (click)="toggleEditMode()">
+      <i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i>
+    </div>
+    <h4 *ngIf="isEditMode">Drop your files here</h4>
+    <div class="profile-image" *ngIf="images?.length > 0" [ngStyle]="{'background-image': 'url('+images[0].url+')'}" ></div>
+    <div class="profile-image" *ngIf="images?.length == 0"  [ngStyle]="{'background-image': 'url(/assets/images/drop-images.jpg)'}" ></div>
+    <div *ngIf="!isEditMode" class="profile-text" (click)="toggleEditMode()">Change profile</div>
+  </div>
+
+  <input type="file"
+         NgSelectFiles
+         (onUpload)="fileOverDropZone($event)"
+         (beforeUpload)="beforeUpload($event)"
+         *ngIf="isEditMode">
+
+  <!--<div class="masonry">
+    <div class="item" *ngFor="let image of images">
+      <img [src]="image.url">
+    </div>
+  </div>-->
+  <table class="table" *ngIf="files.length > 0">
+    <tbody>
+    <tr *ngFor="let item of files">
+      <td>
+        <div *ngIf="item.isUploading" class="progress" style="margin-bottom: 0;">
+          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  <!--<button type="button" class="btn btn-success" (click)="uploadImagesToFirebase()" [disabled]="files?.length == 0 || !isEnabledUpload">
+    <span class="glyphicon glyphicon-upload"></span> Upload files to Firebase
+  </button>-->
+

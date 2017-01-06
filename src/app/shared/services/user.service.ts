@@ -8,17 +8,17 @@ import * as firebase from 'firebase';
 export class UserService {
   sdkDb: any;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private _angularFireDatabase: AngularFireDatabase) {
     this.sdkDb = firebase.database().ref().child('users');
   }
 
   findAllUsers(): Observable<User[]> {
-    return this.db.list('users').map(User.fromJsonArray);
+    return this._angularFireDatabase.list('users').map(User.fromJsonArray);
   }
 
 
   findUserbyUid($uid: string): Observable<User> {
-    return this.db.list('users', {
+    return this._angularFireDatabase.list('users', {
       query: {
         orderByChild: 'regUser',
         equalTo: $uid

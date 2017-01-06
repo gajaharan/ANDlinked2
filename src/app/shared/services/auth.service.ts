@@ -15,19 +15,19 @@ export class AuthService {
 
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
-  constructor(private auth: FirebaseAuth,
-              private router: Router) {
+  constructor(private _auth: FirebaseAuth,
+              private _router: Router) {
 
   }
 
 
   login(email, password): Observable<FirebaseAuthState> {
-    return this.fromFirebaseAuthPromise(this.auth.login({email, password}));
+    return this.fromFirebaseAuthPromise(this._auth.login({email, password}));
   }
 
 
   register(email, password): Observable<FirebaseAuthState> {
-    return this.fromFirebaseAuthPromise(this.auth.createUser({email, password}))
+    return this.fromFirebaseAuthPromise(this._auth.createUser({email, password}))
       .do(val => console.log("register", val));
   }
 
@@ -39,7 +39,7 @@ export class AuthService {
 
     promise
       .then(res => {
-          const authInfo = new AuthInfo(this.auth.getAuth().uid);
+          const authInfo = new AuthInfo(this._auth.getAuth().uid);
           this.authInfo$.next(authInfo);
           subject.next(res);
           subject.complete();
@@ -62,9 +62,9 @@ export class AuthService {
 
 
   logout() {
-    this.auth.logout();
+    this._auth.logout();
     this.authInfo$.next(AuthService.UNKNOWN_USER);
-    this.router.navigate(['/login']);
+    this._router.navigate(['/login']);
 
 
   }

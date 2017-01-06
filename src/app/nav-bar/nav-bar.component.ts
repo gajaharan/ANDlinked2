@@ -13,25 +13,25 @@ export class NavBarComponent implements OnInit, OnChanges {
   authInfo: AuthInfo;
   user: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private _authService: AuthService) {
   }
 
   ngOnInit() {
-    this.authService.authInfo$.subscribe(authInfo => this.authInfo = authInfo);
+    this._authService.authInfo$.subscribe(authInfo => this.authInfo = authInfo);
 
   }
 
   ngOnChanges() {
-    this.authService.user$.subscribe(user => this.user = user);
+    this._authService.user$.subscribe(user => this.user = user);
   }
 
   getCurrentLoggedUser() {
-    this.authService.getCurrentLoggedUser();
+    this._authService.getCurrentLoggedUser();
   }
 
 
   logout() {
-    this.authService.logout();
+    this._authService.logout();
   }
 
 }
