@@ -183,7 +183,7 @@ input.ng-valid.ng-touched {
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   padding-bottom: 5px;
   text-align: left;
-  margin-left: 1-px;
+  margin-left: 10px;
 }
 
 .userinfo a {
@@ -203,4 +203,46 @@ input.ng-valid.ng-touched {
 .error {
   color: white;
   padding-bottom: 10px;
+}
+
+.center {
+  width: 80%;
+  margin: 0 auto;
+}
+
+i {
+  font-size: 2em !important;
+  transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+.edit {
+  width: 30%;
+  height: 24px;
+  display: inline-block;
+  text-align: right;
+  position: relative;
+  top: 20px;
+  color: #CF2D3B;
+}
+
+.save {
+  width: 30%;
+  height: 24px;
+  display: inline-block;
+  text-align: right;
+  position: relative;
+  top: 20px;
+  color: greenyellow;
+}
+
+.cancel {
+  width: 30%;
+  height: 24px;
+  display: inline-block;
+  text-align: right;
+  position: relative;
+  top: 20px;
+  color: darkorange;
 }

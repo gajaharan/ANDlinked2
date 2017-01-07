@@ -1,0 +1,12 @@
+.label-mode {
+  background-color: #0D1429;
+  border: 1px solid #0D1429 !important;
+  color: #fff;
+  cursor: default;
+  text-align: right;
+  font-size: 20px;
+}
+
+.field-mode {
+  background-color: #fff;
+}

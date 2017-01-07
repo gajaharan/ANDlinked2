@@ -58,5 +58,37 @@ export class UserService {
 
     return subject.asObservable();
   }
+
+  saveUser(userId:string, user): Observable<any> {
+
+    const userToSave = Object.assign({}, user);
+    delete(userToSave.$key);
+
+    let dataToSave = {};
+    dataToSave[`${userId}`] = userToSave ;
+
+    return this.firebaseUpdate(dataToSave);
+
+
+  }
+
+  firebaseUpdate(dataToSave) {
+    const subject = new Subject();
+
+    this.sdkDb.update(dataToSave)
+      .then(
+        val => {
+          subject.next(val);
+          subject.complete();
+
+        },
+        err => {
+          subject.error(err);
+          subject.complete();
+        }
+      );
+
+    return subject.asObservable();
+  }
 }
 

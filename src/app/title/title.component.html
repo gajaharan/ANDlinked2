@@ -1,0 +1,19 @@
+<div class="col-md-7 col-xs-7">
+  <input type='text' [placeholder]='getPlaceHolder()' [disabled]='!isEditMode' [(ngModel)]='user.role'
+         [ngClass]="{'field-mode': isEditMode, 'label-mode': !isEditMode}">
+
+</div>
+
+<div  class="col-md-4 col-xs-4">
+  <div class="save" (click)="save()" *ngIf="isEditMode">
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </div>
+  <div class="cancel" (click)="cancel()" *ngIf="isEditMode">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+  <div class="edit" (click)="toggleEditMode()">
+    <i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i>
+  </div>
+</div>
+
+

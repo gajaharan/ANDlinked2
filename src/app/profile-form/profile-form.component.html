@@ -1,9 +1,19 @@
 <div class="row">
+  <div class="col-md-12">
+    <div class="center">
+      <app-header [userId]='userId'></app-header>
+      <app-title [userId]='userId' [title]="'role'"></app-title>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-3 col-xs-3" id="profile-photo">
     <app-upload-images [userId]='userId'></app-upload-images>
   </div>
   <div class="col-md-9 col-xs-9">
-
   </div>
 </div>
+
+
 

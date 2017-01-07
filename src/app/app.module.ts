@@ -18,6 +18,8 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { NgDropFilesDirective } from './shared/directives/ng-drop-files.directive';
 import {UploadImagesService} from "./shared/services/upload-images.service";
 import { NgSelectFilesDirective } from './shared/directives/ng-select-files.directive';
+import { TitleComponent } from './title/title.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { NgSelectFilesDirective } from './shared/directives/ng-select-files.dire
     NavBarComponent,
     UploadImagesComponent,
     NgDropFilesDirective,
-    NgSelectFilesDirective
+    NgSelectFilesDirective,
+    TitleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

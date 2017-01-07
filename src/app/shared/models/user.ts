@@ -1,11 +1,13 @@
 export class User {
 
-  constructor(public $key: string,
-              public date: string,
-              public email: string,
-              public firstname: string,
-              public lastname: string,
-              public regUser: string) {
+
+  constructor(public $key?: string,
+              public date?: string,
+              public email?: string,
+              public firstname?: string,
+              public lastname?: string,
+              public regUser?: string,
+              public role?: string) {
   }
 
 
@@ -14,7 +16,7 @@ export class User {
   }
 
   static fromJson({
-    $key, date, email, firstname, lastname, regUser
+    $key, date, email, firstname, lastname, regUser, role
   }): User {
     return new User(
       $key,
@@ -22,7 +24,8 @@ export class User {
       email,
       firstname,
       lastname,
-      regUser);
+      regUser,
+      role);
   }
 
 }
